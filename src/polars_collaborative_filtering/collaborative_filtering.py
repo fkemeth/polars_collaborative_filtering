@@ -128,7 +128,8 @@ class CollaborativeFilter:
         )
 
         # Return the top recommendations
-        predictions = predictions.sort(by="prediction", descending=True).limit(
-            num_predictions
-        )
+        if num_predictions:
+            predictions = predictions.sort(by="prediction", descending=True).limit(
+                num_predictions
+            )
         return predictions
